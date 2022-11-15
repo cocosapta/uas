@@ -6,20 +6,10 @@
   <body>
         <!-- Navigation-->
        @include('parts.nav')
-      @yield('login')
-      @yield('daftar')
-       @yield('home')
-       @yield('belanja')
-       @yield('transaksi')
-       @yield('keranjang')
-       @yield('detailbarang')
-       @yield('bayar')
-       @yield('profile')
-       @yield('setting')
-       @yield('kontak')
-       @yield('tentangkami')
-
-
+      
+      <!-- Konten-->
+       @yield('container')
+   
         <!-- Footer-->
        @include('parts.footer')
         <!-- Bootstrap core JS-->

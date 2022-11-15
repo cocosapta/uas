@@ -1,5 +1,5 @@
 @extends('index')
-@section('detailbarang')
+@section('container')
     <div class="container mt-1">
          <form>
         <div class="box rounded m-3 bg-muted shadow-lg p-3">
