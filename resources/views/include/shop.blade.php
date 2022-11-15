@@ -1,5 +1,5 @@
 @extends('index')
-@section('belanja')
+@section('container')
 
 <div class="container">
     

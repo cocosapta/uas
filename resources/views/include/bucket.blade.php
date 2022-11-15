@@ -1,5 +1,5 @@
 @extends('index')
-@section('keranjang')
+@section('container')
       <div class="container mt-3 mb-2">
         <div class="row">
             <div class="col-3  mt-2  ">

@@ -1,5 +1,5 @@
 @extends('index')
-@section('daftar')
+@section('container')
      <div class="container mt-5 mb-5">
         <div class="box rounded m-3 bg-muted shadow-lg p-3 mt-3 mb-5">
         <div class="text-left  ms-5 mt-4 mb-5">
