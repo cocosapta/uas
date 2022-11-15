@@ -7,6 +7,7 @@
         <!-- Navigation-->
        @include('parts.nav')
       
+      <!-- Konten-->
        @yield('container')
    
         <!-- Footer-->
