@@ -14,8 +14,8 @@
             Belanja
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/belanja">Populer</a></li>
-            <li><a class="dropdown-item" href="/belanja">Terbaru</a></li>
+            <li><a class="dropdown-item" href="/belanja/populer">Populer</a></li>
+            <li><a class="dropdown-item" href="/belanja/terbaru">Terbaru</a></li>
              <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/belanja">Semua Item</a></li>
           </ul>
@@ -24,7 +24,7 @@
         <a class="nav-link" href="/transaksi">Transaksi</a>
       </li>
        <li class="nav-item ms-3">
-        <a class="btn btn-outline-secondary position-relative" href="/keranjang" ><img src="user_icon/keranjang.png" height="20px"></a>
+        <a class="btn btn-outline-secondary position-relative" href="/keranjang" ><img src="/user_icon/keranjang.png" height="20px"></a>
       </li>
        
       </ul>
@@ -42,10 +42,9 @@
       @if ( $name = 1)
           <div class="dropdown ">
           <a class="nav-link dropdown-toggle ms-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="text-dark ms-1"><img  class="" src="user_icon/loginuser/us.png" class="ms-2" width="25px"> Username </span>
+            <span class="text-dark ms-1"><img  class="" src="/user_icon/loginuser/us.png" class="ms-2" width="25px"> Username </span>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/profile">Profile</a></li>
             <li><a class="dropdown-item" href="/setting">Setting</a></li>
              <li><a class="dropdown-item" href="/logout">Logout</a></li>
             
