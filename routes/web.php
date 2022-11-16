@@ -1,19 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\HomesController;
-use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\BelanjaController;
-use App\Http\Controllers\KeranjangController;
+
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\HubungikamiController;
-use App\Http\Controllers\TentangkamiController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\TransaksiController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,43 +21,42 @@ use App\Http\Controllers\TentangkamiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',  
-    [LoginController::class, 'login']
-);
-Route::get('/daftar', 
-    [DaftarController::class, 'daftar']
-);
-Route::get('/logout',  
-    [LogoutController::class, 'logout']
-);
-Route::get('/home', 
-    [HomesController::class, 'home']
-);
-Route::get('/transaksi', 
-    [TransaksiController::class, 'transaksi']
-);
-Route::get('/belanja',  
-    [BelanjaController::class, 'belanja']
-);
-Route::get('/keranjang',  
-    [KeranjangController::class, 'keranjang']
-);
-Route::get('/item',  
-    [ItemController::class, 'item']
-);
-Route::get('/pembayaran', 
-    [PembayaranController::class, 'pembayaran']
-);
-Route::get('/profile',  
-    [ProfileController::class, 'profile']
-);
-Route::get('/setting', 
-    [SettingController::class, 'setting']
-);
-Route::get('/hubungikami', 
-    [HubungikamiController::class, 'hubungikami']
-);
-Route::get('/tentangkami', 
-    [TentangkamiController::class, 'tentangkami']
-);
+
+
+Route::get('/home', [
+    HomeController::class, 'index'
+]);
+Route::get('/transaksi', [
+    TransaksiController::class, 'index'
+]);
+Route::get('/keranjang', [
+    KeranjangController::class, 'keranjang'
+]);
+Route::get('/item', [
+    ItemController::class, 'item'
+]);
+Route::get('/pembayaran',[
+    PembayaranController::class, 'byr'
+]);
+
+Route::prefix('setting')->group(function (){
+    Route::get('', [SettingController::class,'set']);
+    Route::get('/hubungikami',[SettingController::class,'hub' ] );
+    Route::get('/tentangkami', [SettingController::class,'tentangkami']);
+    Route::get('/profile', [SettingController::class, 'profil']);
+});
+
+Route::prefix('belanja')->group(function (){
+    Route::get('', [ShopController::class,'index']);
+    Route::get('/populer',[ShopController::class,'populer' ] );
+    Route::get('/terbaru', [ShopController::class,'terbaru']);
+});
+
+Route::controller(LoginController::class)->group(function() {
+    Route::get('/', 'index');
+    Route::get('/daftar', 'daftar');
+    Route::get('/logout', 'index');
+});
+
+
 
