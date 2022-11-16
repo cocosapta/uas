@@ -1,6 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\BelanjaController;
+use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\HubungikamiController;
+use App\Http\Controllers\TentangkamiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,46 +25,43 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',  
+    [LoginController::class, 'login']
+);
+Route::get('/daftar', 
+    [DaftarController::class, 'daftar']
+);
+Route::get('/logout',  
+    [LogoutController::class, 'logout']
+);
+Route::get('/home', 
+    [HomeController::class, 'home']
+);
+Route::get('/transaksi', 
+    [TransaksiController::class, 'transaksi']
+);
+Route::get('/belanja',  
+    [BelanjaController::class, 'belanja']
+);
+Route::get('/keranjang',  
+    [KeranjangController::class, 'keranjang']
+);
+Route::get('/item',  
+    [ItemController::class, 'item']
+);
+Route::get('/pembayaran', 
+    [PembayaranController::class, 'pembayaran']
+);
+Route::get('/profile',  
+    [ProfileController::class, 'profile']
+);
+Route::get('/setting', 
+    [SettingController::class, 'setting']
+);
+Route::get('/hubungikami', 
+    [HubungikamiController::class, 'hubungikami']
+);
+Route::get('/tentangkami', 
+    [TentangkamiController::class, 'tentangkami']
+);
 
-/* web user */
-Route::get('/', function () {
-    return view('include.login');
-});
-Route::get('/daftar', function () {
-    return view('include.daftar');
-});
-Route::get('/logout', function () {
-    return view('include.login');
-});
-Route::get('/home', function () {
-    return view('include.home');
-});
-Route::get('/transaksi', function () {
-    return view('include.transaction');
-});
-Route::get('/belanja', function () {
-    return view('include.shop');
-});
-Route::get('/keranjang', function () {
-    return view('include.bucket');
-});
-Route::get('/item', function () {
-    return view('include.item');
-});
-Route::get('/pembayaran', function () {
-    return view('include.bayar');
-});
-Route::get('/profile', function () {
-    return view('include.profile');
-});
-Route::get('/setting', function () {
-    return view('include.setting');
-});
-Route::get('/hubungikami', function () {
-    return view('include.contactme');
-});
-Route::get('/tentangkami', function () {
-    return view('include.about');
-});
-
-/* end route web user*/ 
