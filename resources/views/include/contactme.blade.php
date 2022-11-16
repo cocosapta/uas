@@ -50,9 +50,9 @@
                                     <h5 class="fst-italic">Social Media</h5>
                                 </div>
                                 <div class="d-block p-1">
-                                    <a class="text-decoration-none d-block p-1" href=""><label for=""><img src="user_icon/loginuser/wa-logo.png" width="25px" class="ps-1"> WhatsApp</label></a>
-                                    <a class="text-decoration-none d-block p-1" href=""><label for=""><img src="user_icon/loginuser/ig-logo.png" width="25px" class="ps-1"> Instagram</label></a>
-                                    <a class="text-decoration-none d-block p-1" href=""><label for=""><img src="user_icon/loginuser/youtube-logo.png" width="25px" class="ps-1"> YouTube</label></a>
+                                    <a class="text-decoration-none d-block p-1" href=""><label for=""><img src="/user_icon/loginuser/wa-logo.png" width="25px" class="ps-1"> WhatsApp</label></a>
+                                    <a class="text-decoration-none d-block p-1" href=""><label for=""><img src="/user_icon/loginuser/ig-logo.png" width="25px" class="ps-1"> Instagram</label></a>
+                                    <a class="text-decoration-none d-block p-1" href=""><label for=""><img src="/user_icon/loginuser/youtube-logo.png" width="25px" class="ps-1"> YouTube</label></a>
                                 </div>
                             </div>
                         </div>

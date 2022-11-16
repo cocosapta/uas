@@ -36,16 +36,16 @@
                                     <table class="table">
                                     <tbody class="mb-1">
                                         <tr class="menu">
-                                            <td><a href="/profile" class="text-decoration-none text-dark fw-bold">Profile</a></td>
+                                            <td><a href="/setting/profile" class="text-decoration-none text-dark fw-bold">Profile</a></td>
                                         </tr>
                                         <tr class="menu">
                                             <td><a href="/transaksi" class="text-decoration-none text-dark fw-bold">Riwayat Transaksi</a></td>
                                         </tr>
                                         <tr class="menu">
-                                            <td><a href="/tentangkami" class="text-decoration-none text-dark fw-bold">Tentang Kami</a></td>
+                                            <td><a href="/setting/tentangkami" class="text-decoration-none text-dark fw-bold">Tentang Kami</a></td>
                                         </tr>
                                         <tr class="menu">
-                                            <td><a href="/hubungikami" class="text-decoration-none text-dark fw-bold">Hubungi Kami</a></td>
+                                            <td><a href="/setting/hubungikami" class="text-decoration-none text-dark fw-bold">Hubungi Kami</a></td>
                                         </tr>
                                         <tr class="menu">
                                             <td><a href="/" class="text-decoration-none text-dark fw-bold">Logout</a></td>

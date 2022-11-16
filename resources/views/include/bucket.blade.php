@@ -11,8 +11,8 @@
                     <div class="mt-3 pb-5" style="margin-left:-20px;">
                         <ul>
                             <ol class="menu"><a href="/keranjang" class="text-decoration-none text-secondary"> Keranjang</a></ol>
-                            <ol class="menu"><a href="/belanja" class="text-decoration-none text-secondary"> Item Terbaru</a></ol>
-                            <ol class="menu"><a href="/belanja" class="text-decoration-none text-secondary"> Item Populer</a></ol>
+                            <ol class="menu"><a href="/belanja/terbaru" class="text-decoration-none text-secondary"> Item Terbaru</a></ol>
+                            <ol class="menu"><a href="/belanja/populer" class="text-decoration-none text-secondary"> Item Populer</a></ol>
                             <ol class="menu"><a href="/" class="text-decoration-none text-secondary pb-5"> Logout</a></ol>
 
                         </ul>
