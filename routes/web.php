@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomesController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\KeranjangController;
@@ -35,7 +35,7 @@ Route::get('/logout',
     [LogoutController::class, 'logout']
 );
 Route::get('/home', 
-    [HomeController::class, 'home']
+    [HomesController::class, 'home']
 );
 Route::get('/transaksi', 
     [TransaksiController::class, 'transaksi']
