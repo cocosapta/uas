@@ -30,7 +30,7 @@
       </ul>
     </div>
       <div>
-         <a class="btn btn-outline-success ms-1 shadow-lg" type="button" aria-expanded="false" href="/">
+         <a class="btn btn-outline-success ms-1 shadow-lg" type="button" aria-expanded="false" href="/login">
           Login
          </a>
       </div>

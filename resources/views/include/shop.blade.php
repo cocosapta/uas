@@ -7,9 +7,9 @@
     <section class="pt-3">
             <div class="container px-4 px-lg-5 mt-1">
                 <div class="mb-5">
-                    <form class="d-flex" role="search">
+                    <form class="d-flex" role="search" action="" method="get">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <a class="btn btn-outline-success" type="submit" href="">Search</a>
+                    <button class="btn btn-outline-success" type="submit" href="" name="search">Search</button>
                     </form>
                 </div>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

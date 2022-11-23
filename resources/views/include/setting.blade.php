@@ -13,7 +13,7 @@
                             <ol class="menu"><a href="/keranjang" class="text-decoration-none text-secondary"> Keranjang</a></ol>
                             <ol class="menu"><a href="/belanja/terbaru" class="text-decoration-none text-secondary"> Item Terbaru</a></ol>
                             <ol class="menu"><a href="/belanja/populer" class="text-decoration-none text-secondary"> Item Populer</a></ol>
-                            <ol class="menu"><a href="/" class="text-decoration-none text-secondary pb-5"> Logout</a></ol>
+                            <ol class="menu"><a href="/logout" class="text-decoration-none text-secondary pb-5"> Logout</a></ol>
 
                         </ul>
                     </div>
@@ -48,7 +48,7 @@
                                             <td><a href="/setting/hubungikami" class="text-decoration-none text-dark fw-bold">Hubungi Kami</a></td>
                                         </tr>
                                         <tr class="menu">
-                                            <td><a href="/" class="text-decoration-none text-dark fw-bold">Logout</a></td>
+                                            <td><a href="/logout" class="text-decoration-none text-dark fw-bold">Logout</a></td>
                                         </tr>
                                     </tbody>
                                     </table>  

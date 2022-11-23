@@ -26,22 +26,22 @@
                     <h1 class="pb-3 text-left">Login</h1>
                     <div class="mt-1 bg-light rounded shadow-lg p-3">
                         <div class="form m-3 p-3">
-                            <form>
+                            <form action="" method="post" >
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                                 </div>
-                                <a type="submit" class="btn btn-primary d-flex justify-content-center" href="/home">Login</a>
+                                <button type="submit" class="btn btn-primary d-flex justify-content-center" href="/home">Login</button>
                                 
                                 <div class="text-center pt-3">
                                     atau
                                 </div>
                                 <div class="text-center">
-                                    <label class="pt-3">Belum punya akun? <a href="/daftar" class="text-success" >Daftar</a></label>
+                                    <label class="pt-2">Belum punya akun? <a href="/daftar" class="text-success" >Daftar</a></label>
                                 </div>
                                 </form>
                         </div>

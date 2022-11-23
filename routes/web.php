@@ -7,9 +7,10 @@ use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/home', [
     HomeController::class, 'index'
 ]);
 Route::get('/transaksi', [
-    TransaksiController::class, 'index'
+    TransaksiController::class, 'transaksi'
 ]);
 Route::get('/keranjang', [
     KeranjangController::class, 'keranjang'
@@ -36,26 +37,27 @@ Route::get('/item', [
     ItemController::class, 'item'
 ]);
 Route::get('/pembayaran',[
-    PembayaranController::class, 'byr'
+    PembayaranController::class, 'pembayaran'
 ]);
 
 Route::prefix('setting')->group(function (){
-    Route::get('', [SettingController::class,'set']);
-    Route::get('/hubungikami',[SettingController::class,'hub' ] );
+    Route::get('', [SettingController::class,'setting']);
+    Route::get('/hubungikami',[SettingController::class,'hubungikami' ] );
     Route::get('/tentangkami', [SettingController::class,'tentangkami']);
     Route::get('/profile', [SettingController::class, 'profil']);
 });
 
 Route::prefix('belanja')->group(function (){
-    Route::get('', [ShopController::class,'index']);
-    Route::get('/populer',[ShopController::class,'populer' ] );
-    Route::get('/terbaru', [ShopController::class,'terbaru']);
+    Route::get('', [BelanjaController::class,'belanja']);
+    Route::get('/populer',[BelanjaController::class,'populer' ] );
+    Route::get('/terbaru', [BelanjaController::class,'terbaru']);
 });
 
 Route::controller(LoginController::class)->group(function() {
-    Route::get('/', 'index');
+    Route::get('/', 'halbelumlogin');
     Route::get('/daftar', 'daftar');
-    Route::get('/logout', 'index');
+    Route::get('/logout', 'logout');
+    Route::get('/login', 'login');
 });
 
 
