@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Warna extends Model
 {
     protected $table = "warna";
-    protected $primaryKey = "warna";
+    protected $primaryKey = "id_warna";
 }

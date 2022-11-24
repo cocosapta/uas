@@ -5,27 +5,27 @@
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Forms</h3>
+								<h3>Data Barang</h3>
 							</div>
 							<div class="module-body">
 
 									<div class="alert">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-										<strong>Warning!</strong> Something fishy here!
+										<strong>Perhatian</strong> Semua Data Barang Wajib Diisi yah min
 									</div>
 									<div class="alert alert-error">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-										<strong>Oh snap!</strong> Whats wrong with you? 
+										<strong>Waduh</strong> Cek lagi min, ada data yang nggak kamu isi 
 									</div>
 									<div class="alert alert-success">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-										<strong>Well done!</strong> Now you are listening me :) 
+										<strong>Mantap min!</strong> Data kamu udah lengkap :) 
 									</div>
 
 									<br />
 
 									<form class="form-horizontal row-fluid">
-                                        @
+										@csrf
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Kategori Barang</label>
 											<div class="controls">
@@ -33,7 +33,7 @@
 													<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">Pilih Kategori Barang <i class="icon-caret-down"></i></a>
 													<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 														@foreach ($Kategori as $k)
-														<li><a href="#" value=>{{$k->nama_kategori_barang}}</a></li>
+														<li><a href="#" value="{{$k->id_kategori_barang}}">{{$k->nama_kategori_barang}}</a></li>
 														@endforeach
 													</ul>
 												</div>
@@ -44,7 +44,6 @@
 											<label class="control-label" for="basicinput">Nama Barang</label>
 											<div class="controls">
 												<input type="text" id="basicinput" placeholder="Air Jordan 1 Retro High OG..." class="span8">
-												<span class="help-inline">Minimum 5 Characters</span>
 											</div>
 										</div>
 
@@ -61,11 +60,71 @@
 										</div>
 
 										<div class="control-group">
-											<label class="control-label" for="basicinput">Disabled Input</label>
+											<label class="control-label" for="basicinput">Warna Barang</label>
 											<div class="controls">
-												<input type="text" id="basicinput" placeholder="You can't type something here..." class="span8" disabled>
+												<div class="dropdown">
+													<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">Pilih Warna Barang <i class="icon-caret-down"></i></a>
+													<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+														@foreach ($Warna as $w)
+														<li><a href="#" value="{{$w->id_warna}}" >{{$w->warna}}</a></li>
+														@endforeach
+													</ul>
+												</div>
 											</div>
 										</div>
+
+										<div class="control-group">
+											<label class="control-label" for="basicinput">Harga Barang</label>
+											<div class="controls">
+												<div class="input-append">
+													<span class="add-on">Rp.</span><input type="text" placeholder="5.000" class="span8">
+												</div>
+											</div>
+										</div>
+
+										<div class="control-group">
+											<label class="control-label">Status Barang</label>
+											<div class="controls">
+												<label class="radio inline">
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+													Ready
+												</label> 
+												<label class="radio inline">
+													<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+													Sold Out
+												</label> 
+											</div>
+										</div>
+
+										<div class="control-group">
+											<label class="control-label" for="basicinput">Jumlah Barang</label>
+											<div class="controls">
+												<div class="input-append">
+													<input type="text" placeholder="5.000" class="span8"><span class="add-on">Pcs</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="control-group">
+											<label class="control-label" for="basicinput">Gambar Barang</label>
+											<div class="controls">
+												<div class="input-append">
+													<span>Upload</span><input type="file" placeholder="Upload">
+												</div>
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<label class="control-label" for="basicinput">Deskripsi Barang</label>
+											<div class="controls">
+												<textarea class="span8" rows="5"></textarea>
+											</div>
+										</div>
+
+										
+
+{{-- 
+										
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Tooltip Input</label>
@@ -83,14 +142,6 @@
 											</div>
 										</div>
 
-										<div class="control-group">
-											<label class="control-label" for="basicinput">Appended Input</label>
-											<div class="controls">
-												<div class="input-append">
-													<input type="text" placeholder="5.000" class="span8"><span class="add-on">$</span>
-												</div>
-											</div>
-										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Dropdown Button</label>
@@ -138,23 +189,7 @@
 											</div>
 										</div>
 
-										<div class="control-group">
-											<label class="control-label">Inline Radiobuttons</label>
-											<div class="controls">
-												<label class="radio inline">
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-													Option one
-												</label> 
-												<label class="radio inline">
-													<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-													Option two
-												</label> 
-												<label class="radio inline">
-													<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-													Option three
-												</label>
-											</div>
-										</div>
+										
 
 										<div class="control-group">
 											<label class="control-label">Checkboxes</label>
@@ -190,18 +225,11 @@
 													Option three
 												</label>
 											</div>
-										</div>
-
-										<div class="control-group">
-											<label class="control-label" for="basicinput">Textarea</label>
-											<div class="controls">
-												<textarea class="span8" rows="5"></textarea>
-											</div>
-										</div>
+										</div> --}}
 
 										<div class="control-group">
 											<div class="controls">
-												<button type="submit" class="btn">Submit Form</button>
+												<button type="submit" class="btn">Submit</button>
 											</div>
 										</div>
 									</form>
