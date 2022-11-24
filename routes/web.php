@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\KeranjangController;
@@ -10,7 +10,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +59,13 @@ Route::controller(LoginController::class)->group(function() {
     Route::get('/logout', 'logout');
     Route::get('/login', 'login');
 });
+Route::controller(AdminController::class)->group(function() {
+    Route::get('/dashboard', 'index');
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 
