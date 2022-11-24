@@ -11,6 +11,7 @@ use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\SistemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,9 @@ Route::controller(LoginController::class)->group(function() {
 });
 Route::controller(AdminController::class)->group(function() {
     Route::get('/dashboard', 'index');
+});
+Route::controller(SistemController::class)->group(function() {
+    Route::get('/form', 'form');
 });
 Auth::routes();
 
