@@ -62,9 +62,19 @@ Route::controller(LoginController::class)->group(function() {
 });
 Route::controller(AdminController::class)->group(function() {
     Route::get('/dashboard', 'index');
+    Route::get('/barang', 'barang');
+    Route::get('/tambah', 'tambah');
+    Route::get('/warna', 'warna');
+    Route::get('/size', 'size');
+    Route::get('/kategori', 'kategori');
 });
 Route::controller(SistemController::class)->group(function() {
-    Route::get('/form', 'form');
+    Route::post('/add.size', 'add_size');
+    Route::get('/hapus.size/{id_size}', 'hapus_size');
+    Route::post('/add.warna', 'add_warna');
+    Route::get('/hapus.warna/{id_warna}', 'hapus_warna');
+    Route::post('/add.kategori', 'add_kategori');
+    Route::get('/hapus.kategori/{id_kategori_barang}', 'hapus_kategori');
 });
 Auth::routes();
 

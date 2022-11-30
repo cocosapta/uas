@@ -9,4 +9,5 @@ class Kategori extends Model
 {
     protected $table = "kategori_barang";
     protected $primaryKey = "id_kategori_barang";
+    protected $guarded = ['id_kategori_barang'];
 }
