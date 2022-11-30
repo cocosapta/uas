@@ -60,7 +60,7 @@
                                 </span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="add.user" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span
+                            <a href="/add.user" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span
                                     class="hide-menu">Tambah User
                                 </span></a>
                         </li>

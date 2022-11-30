@@ -67,6 +67,7 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('/warna', 'warna');
     Route::get('/size', 'size');
     Route::get('/kategori', 'kategori');
+    Route::get('/add.user', 'user');
 });
 Route::controller(SistemController::class)->group(function() {
     Route::post('/add.size', 'add_size');

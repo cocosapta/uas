@@ -8,6 +8,7 @@ use App\Models\Kategori;
 use App\Models\Warna;
 use App\Models\Barang;
 use App\Models\Transaksi;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -45,5 +46,10 @@ class AdminController extends Controller
     {
         $k = Kategori::all();
         return view('admin.produk.kategori', compact('k'), ['title' => 'Detail Produk', 'content' => 'size']);
+    }
+    public function user()
+    {
+        $u = User::all();
+        return view('admin.user', compact('u'), ['title' => 'User', 'content' => 'User']);
     }
 }
