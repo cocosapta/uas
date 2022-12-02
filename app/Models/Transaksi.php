@@ -9,5 +9,7 @@ class Transaksi extends Model
 {
     protected $table = "transaksi";
     protected $primaryKey = "id_transaksi";
-    protected $guarded= ['id_transaksi']; 
+
+    protected $guarded = ['id_transaksi'];
+
 }
