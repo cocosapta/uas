@@ -22,6 +22,7 @@ return new class extends Migration
             $table->id('id_barang');
             $table->string('nama_barang');
             $table->string('foto_barang')->nullable();
+            $table->string('rating')->nullable();
             $table->integer('harga_satuan');
             $table->integer('jumlah_barang');
             $table->text('deskripsi_barang');

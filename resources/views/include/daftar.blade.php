@@ -10,7 +10,7 @@
                     <form action=""  method="post">
                     <div class="m-2 justify-content-center text-center">
                         <h4 class="m-3 ">Foto Profile</h4>
-                        <img src="user_icon/loginuser/us.png" value="user_icon/loginuser/us.png" width="200px" class="rounded-circle border border-dark p-1 justify-content-center ms-3">
+                        <img src="user_icon/loginuser/us.png" value="" width="200px" class="rounded-circle border border-dark p-1 justify-content-center ms-3">
                         <div class="mt-3">
                             <input type="file" class="form ms-5" id="myfile">
                         </div>
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end me-3 mt-4 mb-4">
-                <a type="button" class="btn btn-outline-danger me-2" href="/">Back</a>
+                <a type="button" class="btn btn-outline-danger me-2" href="/login">Back</a>
                 <button type="button" class="btn btn-dark" href="/home" name="daftar" >Daftar</button>
             </div>
             </form>

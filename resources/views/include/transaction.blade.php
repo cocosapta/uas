@@ -24,30 +24,71 @@
             </div>
 
             <div class="col-9  mt-2 rounded" style="margin-left: 0px;">
-                <div style="margin-left: 2px;">
+                <div style="">
                      <div class="text rounded" style="background-color: rgba(156, 156, 156, 0.162)">
                        <div class="pt-3 ps-1 text-center pb-1" ><h5 class="ps-1">Riwayat Transaksi</h5></div>
                      </div>
-                     {{-- hdjhdjnjkdnk --}}
-                     <div class="bg-light mt-2 ">
-                        <div class="pt-3 ps-3 pe-3 pb-2">
-                            <div>
-                               <h6 class="ms-3">Sepatu Hiking</h6>
-                                <hr> 
+                    <form action="/group" method="get"> 
+                        @csrf
+                     <div class="mt-3 mb-3 btn-group">
+                        <div class="btn-group d-relative">
+                        
+                            <div class="d-flex ">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="menunggu" name="parameter">Menunggu</button>
+                            </div><div class="d-flex">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="dibayar" name="parameter">Dibayar</button>
+                            </div><div class="d-flex">
+                                <button class="btn btn-outline-primary d-flex me-1 cek " value="diproses" name="parameter">Diproses</button>
+                            </div><div class="d-flex">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="dikirim" name="parameter">Dikirim</button>
+                            </div><div class="d-flex">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="diterima" name="parameter">Diterima</button>
+                            </div><div class="d-flex">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="selesai" name="parameter">Selesai</button>
+                            </div><div class="d-flex">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="dikembalikan" name="parameter">Dikembalikan</button>
+                            </div><div class="d-flex">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="dibatalkan" name="parameter">Batal</button>
+                            </div><div class="d-flex">
+                                <button  class="btn btn-outline-primary d-flex me-1 cek " value="kadaluarsa" name="parameter">Kadaluarsa</button>
                             </div>
-                            <div class=>
+                        
+                            </form>
+                        </div>
+                     </div>
+                     {{-- hdjhdjnjkdnk --}}
+                     @foreach ($bayar as $b)
+                     <div class="bg-light mt-2 mb-4 rounded">
+                        <div class="pt-3 ps-3 pe-3 pb-2">
+                            
+                            <div class="row">
+                               <div class="col-5">
+                                    <div class="d-flex-justify-content-start">
+                                        <label class="ms-3" style="font-size: 13px; " for="username">{{ $b->tgl_transaksi }} || {{ $b->name  }}</label>
+                                        <h5 class="fw-bolder ms-3 mt-1">{{ $b->nama_barang }}</h5>
+                                    </div>
+                               </div>
+                                <div class="col-7">
+                                    <div class="d-flex-justify-content-end">
+                                        <label class="d-flex justify-content-end mt-1 " style="font-size: 13px; ">{{ $b->alamat }} | {{ $b->telepon }} </label>
+                                        <h6 class="fw-bolder text-danger fst-italic me-1 d-flex justify-content-end">{{ $b->status }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                              <hr> 
+                            <div>
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="user_icon/sepatu.jpg" class="ms-5 mt-2" width="140px">
+                                        <img src="/user_icon/{{ $b->foto_barang }}" class="ms-5 mt-2" width="140px">
                                     </div>
                                     <div class="col-9">
                                         <ul>
-                                            <ol class="fs-6">Size = 39</ol>
-                                            <ol class="fs-6">Variasi = Putih</ol>
-                                            <ol class="fs-6">Jumlah = 1 </ol>
-                                            <ol class="fs-6">Harga = Rp.250.000</ol>
-                                            <ol class="fs-6">Diskon = Rp.20.000</ol>
-                                            <ol class="pt-2 fw-bolder" >Total Pesanan = Rp.230.000</ol>
+                                            <ol class="fs-6">Size = {{ $b->size }}</ol>
+                                            <ol class="fs-6">Variasi = {{ $b->warna }} </ol>
+                                            <ol class="fs-6">Jumlah = {{ $b->jumlah_barang }} </ol>
+                                            <ol class="fs-6">Harga = Rp. {{ $b->harga_satuan }}</ol>
+                                            <ol class="fs-6">Diskon = - </ol>
+                                            <ol class="pt-2 fw-bolder" >Total Pesanan = Rp. {{ $b->total_harga }}</ol>
                                         </ul>
 
                                         
@@ -58,36 +99,8 @@
                         </div>
                      </div>
                      {{-- hdjhdjnjkdnk --}}
-                     <div class="bg-light mt-2 ">
-                        <div class="pt-3 ps-3 pe-3 pb-2">
-                            <div>
-                               <h6 class="ms-3">Sepatu Hiking</h6>
-                                <hr> 
-                            </div>
-                            <div class=>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="user_icon/sepatu.jpg" class="ms-5 mt-2" width="140px">
-                                    </div>
-                                    <div class="col-9">
-                                        <ul>
-                                            <ol class="fs-6">Size = 39</ol>
-                                            <ol class="fs-6">Variasi = Putih</ol>
-                                            <ol class="fs-6">Jumlah = 1 </ol>
-                                            <ol class="fs-6">Harga = Rp.250.000</ol>
-                                            <ol class="fs-6">Diskon = Rp.20.000</ol>
-                                            <ol class="pt-2 fw-bolder" >Total Pesanan = Rp.230.000</ol>
-                                        </ul>
-
-                                        
-                                    </div>
-                                </div>  
-                            </div>
-                            <hr>
-                        </div>
-                     </div>
                      
-
+@endforeach
 
                     
                 </div>
@@ -103,4 +116,12 @@
     background-color: rgba(143, 143, 143, 0.368);}
 
     </style>
+    <script>
+        const tombol = document.querySelectorAll('.cek');
+
+        tombol.onclick= function () {
+            tombol.classlist.add('active')
+            
+        }
+    </script>
 @endsection

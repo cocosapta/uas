@@ -9,4 +9,5 @@ class Keranjang extends Model
 {
     protected $table = "keranjang_barang";
     protected $primaryKey = "id_keranjang";
+    protected $guarded= ['id_keranjang']; 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Barang;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('include.home');
+        $barang = Barang::all();
+        return view('include.home', compact('barang'), ["title" => "Beranda"]);
     }
     
 }

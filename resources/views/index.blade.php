@@ -15,6 +15,8 @@
         <!-- Bootstrap core JS-->
        @include('parts.script')
 
+        
+
   </body>
 </html>
     

@@ -11,6 +11,7 @@ use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\SistemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,21 +25,23 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-Route::get('/home', [
-    HomeController::class, 'index'
-]);
-Route::get('/transaksi', [
-    TransaksiController::class, 'transaksi'
-]);
-Route::get('/keranjang', [
-    KeranjangController::class, 'keranjang'
-]);
-Route::get('/item', [
-    ItemController::class, 'item'
-]);
-Route::get('/pembayaran',[
-    PembayaranController::class, 'pembayaran'
-]);
+/*ROUTE WEB USER */
+Route::controller(KeranjangController::class)->group(function(){
+    Route::get('/keranjang',[KeranjangController::class, 'keranjang']);
+    Route::get('/keranjang/hapus/{id_keranjang}',[KeranjangController::class,'hapus']);
+});
+
+ Route::controller(ItemController::class)->group(function(){
+    Route::get('/item/{id_barang}', [ItemController::class, 'item']);
+    Route::post('/keranjang/tambah',[ItemController::class, 'tambah']);
+});
+
+Route::controller(TransaksiController::class)->group(function(){
+    Route::get('/transaksi', [TransaksiController::class, 'transaksi']);
+    Route::post('/bayar/{id_keranjang}',[TransaksiController::class, 'bayar']);
+    Route::get('/group', [TransaksiController::class, 'group']);
+    Route::get('/checkout',[ TransaksiController::class, 'checkout']);
+});
 
 Route::prefix('setting')->group(function (){
     Route::get('', [SettingController::class,'setting']);
@@ -49,18 +52,26 @@ Route::prefix('setting')->group(function (){
 
 Route::prefix('belanja')->group(function (){
     Route::get('', [BelanjaController::class,'belanja']);
+    Route::get('/search', [BelanjaController::class,'search']);
+    Route::get('/filter', [BelanjaController::class,'filter']);
     Route::get('/populer',[BelanjaController::class,'populer' ] );
     Route::get('/terbaru', [BelanjaController::class,'terbaru']);
 });
 
 Route::controller(LoginController::class)->group(function() {
-    Route::get('/', 'halbelumlogin');
+    Route::get('/', 'index');
     Route::get('/daftar', 'daftar');
     Route::get('/logout', 'logout');
     Route::get('/login', 'login');
 });
+
+/* END ROUTE WEB USER */
+
 Route::controller(AdminController::class)->group(function() {
     Route::get('/dashboard', 'index');
+});
+Route::controller(SistemController::class)->group(function() {
+    Route::get('/form', 'form');
 });
 Auth::routes();
 
