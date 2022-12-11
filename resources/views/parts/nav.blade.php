@@ -29,18 +29,10 @@
        
       </ul>
     </div>
-      <div>
-         <a class="btn btn-outline-success ms-1 shadow-lg" type="button" aria-expanded="false" href="/login">
-          Login
-         </a>
-      </div>
-      <div>
-         <a class="btn btn-outline-success ms-1 shadow-lg" type="button" aria-expanded="false" href="/daftar">
-          Daftar
-         </a>
-      </div>
+      
       @if ( $name = 1)
-          <div class="dropdown ">
+          @auth
+              <div class="dropdown ">
           <a class="nav-link dropdown-toggle ms-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="text-dark ms-1"><img  class="" src="/user_icon/loginuser/us.png" class="ms-2" width="25px"> Username </span>
           </a>
@@ -62,6 +54,18 @@
             
           </ul>
       </div>
+        @else
+        <div>
+         <a class="btn btn-outline-success ms-1 shadow-lg" type="button" aria-expanded="false" href="/login">
+          Login
+         </a>
+      </div>
+      <div>
+         <a class="btn btn-outline-success ms-1 shadow-lg" type="button" aria-expanded="false" href="/daftar">
+          Daftar
+         </a>
+      </div>
+          @endauth
       @endif
       
   </div>

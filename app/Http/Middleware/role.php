@@ -14,8 +14,12 @@ class role
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$role)
     {
-        return $next($request);
+        if (in_array($request->user()->role,$role)){
+            return $next($request);
+        }
+        return redirect('/');
     }
 }
+

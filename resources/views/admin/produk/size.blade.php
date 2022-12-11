@@ -41,16 +41,16 @@
                             $no = 1;
                             ?>
                             <tbody>
+                                @foreach ($s as $item)
                                 <tr>
-                                    @foreach ($s as $item)
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->size }}</td>
                                         <td>
                                             <a href="{{ url('hapus.size', $item->id_size) }}" class="btn"><i class="fa fa-trash"
                                                     style="color: red;"></i></a>
                                         </td>
+                                    </tr>
                                     @endforeach
-                                </tr>
                             </tbody>
                             
                         </table>

@@ -26,7 +26,8 @@
                         <h1 class="pb-3 text-left">Login</h1>
                         <div class="mt-1 bg-light rounded shadow-lg p-3">
                             <div class="form m-3 p-3">
-                                <form method="POST" action="{{ route('login') }}">
+                                {{-- <form method="POST" action="{{ route('login') }}"> --}}
+                                <form method="POST" action="/login">
                                     @csrf
 
                                     <div class="mb-3">

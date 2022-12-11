@@ -18,19 +18,24 @@ class AdminController extends Controller
     }
     public function barang()
     {
-        $b = Barang::join('warna', 'warna.id_warna', '=', 'barang.id_warna')->join('size', 'size.id_size', '=', 'barang.id_size')
-            ->join('kategori_barang','kategori_barang.id_kategori_barang','=','barang.id_kategori_barang')
-            ->select('barang.id_barang', 'warna.warna', 'size.size', 'barang.nama_barang', 'barang.harga_satuan', 'barang.foto_barang',
-             'barang.rating', 'barang.jumlah_barang', 'kategori_barang.nama_kategori_barang',
-            'barang.status',
-            'barang.deskripsi_barang')->get();
-
+        // $b = Barang::join('warna', 'warna.id_warna', '=', 'barang.id_warna')->join('size', 'size.id_size', '=', 'barang.id_size')
+        //     ->join('kategori_barang','kategori_barang.id_kategori_barang','=','barang.id_kategori_barang')
+        //     ->select('barang.id_barang', 'warna.warna', 'size.size', 'barang.nama_barang', 'barang.harga_satuan', 'barang.foto_barang',
+        //      'barang.rating', 'barang.jumlah_barang', 'kategori_barang.nama_kategori_barang',
+        //     'barang.status',
+        //     'barang.deskripsi_barang')->get();
+            $b = Barang::join('size', 'size.id_size', '=', 'barang.id_size')->join('warna', 'warna.id_warna', '=', 'barang.id_warna')  
+            ->select('barang.*','size.*','warna.*')->get();
         return view('admin.produk.barang', compact('b'), ['title' => 'Produk', 'content' => 'data barang']);
     }
     public function tambah()
     {
-        $b = Barang::all();
-        return view('admin.produk.tambah', compact('b'), ['title' => 'Produk', 'content' => 'tambah barang']);
+        $kt = Kategori::all();
+        $s = Size::all();
+        $w = Warna::all();
+        $b = Barang::join('size', 'size.id_size', '=', 'barang.id_size')->join('warna', 'warna.id_warna', '=', 'barang.id_warna')->join('kategori_barang', 'kategori_barang.id_kategori_barang', '=', 'barang.id_kategori_barang')  
+            ->select('barang.*','size.*','warna.*','kategori_barang.*')->get();
+        return view('admin.produk.tambah', compact('b','w', 's', 'kt'), ['title' => 'Produk', 'content' => 'tambah barang']);
     }
     public function warna()
     {

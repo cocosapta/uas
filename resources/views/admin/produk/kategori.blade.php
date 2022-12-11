@@ -10,7 +10,8 @@
                         <div class="form-group row">
                             <label for="fname" class="col-sm-3 text-end control-label col-form-label">Kategori</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Kategori Barang" />
+                                <input type="text" class="form-control" name="kategori" id="kategori"
+                                    placeholder="Kategori Barang" />
                             </div>
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Name Kategori Barang</th>
+                                    <th>Kategori Barang</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -41,16 +42,16 @@
                             $no = 1;
                             ?>
                             <tbody>
-                                <tr>
-                                    @foreach ($k as $item)
+                                @foreach ($k as $item)
+                                    <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $item->nama_ketegori_barang }}</td>
+                                        <td>{{ $item->nama_kategori_barang}}</td>
                                         <td>
-                                            <a href="{{ url('hapus', $item->id_kategori_barang) }}" class="btn"><i class="fa fa-trash"
-                                                    style="color: red;"></i></a>
+                                            <a href="{{ url('hapus', $item->id_kategori_barang) }}" class="btn"><i
+                                                    class="fa fa-trash" style="color: red;"></i></a>
                                         </td>
-                                    @endforeach
-                                </tr>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

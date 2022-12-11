@@ -11,10 +11,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Name Barang</th>
-                                    <th>Kategori</th>
                                     <th>Harga</th>
                                     <th>Jumlah</th>
                                     <th>Status</th>
+                                    <th>Status Action</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -22,15 +22,15 @@
                             $no = 1;
                             ?>
                             <tbody>
-                                <tr>
-                                    @foreach ($b as $item)
+                                @foreach ($b as $item)
+                                    <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->nama_barang }}</td>
-                                        <td>{{ $item->nama_kategori_barang }}</td>
                                         <td>{{ $item->harga_satuan }}</td>
                                         <td>{{ $item->jumlah_barang }}</td>
+                                        <td>{{ $item->status }}</td>
                                         <td>
-                                            <form action="{{ url('status', $item->id) }}" method="post">
+                                            <form action="{{ url('status', $item->id_barang) }}" method="post">
                                                 @csrf
                                                 @if ($item->status == 'ready')
                                                     <input type="hidden" name="ready" value="ready">
@@ -50,27 +50,16 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="{{ url('hapus', $item->id) }}" class="btn"><i class="fa fa-eye"
+                                            <a href="{{ url('hapus', $item->id_barang) }}" class="btn"><i class="fa fa-eye"
                                                     style="color: blue;"></i></a>
-                                            <a class="btn" data-toggle="modal" data-target="#edit-{{ $item->id }}"><i
+                                            <a class="btn" data-toggle="modal" data-target="#edit-{{ $item->id_barang }}"><i
                                                     class="fa fa-edit"></i></a>
-                                            <a href="{{ url('hapus', $item->id) }}" class="btn"><i class="fa fa-trash"
+                                            <a href="{{ url('hapus', $item->id_barang) }}" class="btn"><i class="fa fa-trash"
                                                     style="color: red;"></i></a>
                                         </td>
-                                    @endforeach
+                                @endforeach
                                 </tr>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Name Barang</th>
-                                    <th>Kategori</th>
-                                    <th>Harga</th>
-                                    <th>Jumlah</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -78,7 +67,7 @@
         </div>
     </div>
     @foreach ($b as $item)
-        <div class="modal fade" id="edit-{{ $item->id }}" tabindex="-1" role="dialog"
+        <div class="modal fade" id="edit-{{ $item->id_barang }}" tabindex="-1" role="dialog"
             aria-labelledby="largeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -108,24 +97,36 @@
                                 <select id="kategori" class="form-control @error('harga') is-invalid @enderror"
                                     name="kategori" required autocomplete="kategori" autofocus>
                                     <option value="">-pilih-</option>
-                                    <option value="ayam">Ayam</option>
-                                    <option value="ikan">Ikan Tawar</option>
-                                    <option value="iga">Iga</option>
-                                    <option value="seafood">Seafood</option>
-                                    <option value="sayur">Aneka Sayuran</option>
-                                    <option value="nasi">Nasi</option>
-                                    <option value="spesial">Spesial</option>
-                                    <option value="kopi">Kopi</option>
-                                    <option value="tradisonal">Tradisonal</option>
-                                    <option value="teh">Teh</option>
-                                    <option value="juice">Juice</option>
-                                    <option value="jeruk">Jeruk</option>
-                                    <option value="milk">Milk Base</option>
-                                    <option value="kudapan">Aneka Kudapan</option>
-                                    <option value="penyetan">Aneka Penyetan</option>
-                                    <option value="lelenggahan">Lelenggahan</option>
+                                    <option value="">Lelenggahan</option>
                                 </select>
                                 @error('kategori')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Size</label>
+                                <select id="size" class="form-control @error('harga') is-invalid @enderror"
+                                    name="size" required autocomplete="size" autofocus>
+                                    <option value="">-pilih-</option>
+                                    <option value="{{$item->id_size}}">{{$item->size}}</option>
+                                </select>
+                                @error('size')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                            <div class="form-group">
+                                <label>Warna</label>
+                                <select id="warna" class="form-control @error('harga') is-invalid @enderror"
+                                    name="warna" required autocomplete="warna" autofocus>
+                                    <option value="">-pilih-</option>
+                                    <option value="{{$item->id_warna}}">{{$item->warna}}</option>
+                                </select>
+                                @error('warna')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -9,6 +9,8 @@ use App\Models\Keranjang;
 use App\Models\Kategori;
 use Illuminate\Support\Facades\DB;
 use App\Models\Warna;
+use App\Models\User;
+
 
 
 
@@ -37,8 +39,8 @@ class ItemController extends Controller
        DB::table('keranjang_barang')
         ->insert([
             'id_barang'=> $request->id_barang,
-            'id_user'=> 1 ,
-            'id_pengguna' => 1,
+            'id_user'=> auth()->user()->id_user ,
+            'id_pengguna' => auth()->user()->id_pengguna,
             'jumlah_barang' =>$jum,
             'total_harga' => $request->hargasatuan*$jum,
             'status' => 'belum'  

@@ -38,7 +38,7 @@ Route::controller(KeranjangController::class)->group(function(){
 
 Route::controller(TransaksiController::class)->group(function(){
     Route::get('/transaksi', [TransaksiController::class, 'transaksi']);
-    Route::post('/bayar/{id_keranjang}',[TransaksiController::class, 'bayar']);
+    Route::post('/bayar/{id_keranjang}',[TransaksiController::class, 'bayar'])->middleware();
     Route::get('/group', [TransaksiController::class, 'group']);
     Route::get('/checkout',[ TransaksiController::class, 'checkout']);
 });
@@ -62,10 +62,22 @@ Route::controller(LoginController::class)->group(function() {
     Route::get('/', 'index');
     Route::get('/daftar', 'daftar');
     Route::get('/logout', 'logout');
-    Route::get('/login', 'login');
+    Route::get('/login', 'index')->middleware('guest');
+    Route::post('/login', 'authenticate');
 });
 
 /* END ROUTE WEB USER */
+
+Route::group(['middleware' => ['auth']], function () {
+    //  <----------------Route Meja-------------------------->
+    Route::middleware(['auth', 'role:user'])->group(function () {
+       
+    });
+    // <-------------------Route Admin----------------------------->
+    Route::middleware(['auth', 'role:admin'])->group(function () {
+    });
+    
+});
 
 Route::controller(AdminController::class)->group(function() {
     Route::get('/dashboard', 'index');
@@ -74,15 +86,16 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('/warna', 'warna');
     Route::get('/size', 'size');
     Route::get('/kategori', 'kategori');
-    Route::get('/add.user', 'user');
 });
-Route::controller(SistemController::class)->group(function() {
+Route::controller(SistemController::class)->group(function () {
     Route::post('/add.size', 'add_size');
     Route::get('/hapus.size/{id_size}', 'hapus_size');
     Route::post('/add.warna', 'add_warna');
     Route::get('/hapus.warna/{id_warna}', 'hapus_warna');
     Route::post('/add.kategori', 'add_kategori');
+    Route::post('/status/{id_barang}', 'status');
     Route::get('/hapus.kategori/{id_kategori_barang}', 'hapus_kategori');
+    Route::post('/tambah.barang','tambah_barang')->name('create');
 });
 Route::controller(SistemController::class)->group(function() {
     Route::get('/form', 'form');

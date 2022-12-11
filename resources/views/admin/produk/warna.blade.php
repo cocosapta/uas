@@ -41,16 +41,16 @@
                             $no = 1;
                             ?>
                             <tbody>
-                                <tr>
                                     @foreach ($w as $item)
+                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->warna }}</td>
                                         <td>
                                             <a href="{{ url('hapus', $item->id_warna) }}" class="btn"><i class="fa fa-trash"
                                                     style="color: red;"></i></a>
                                         </td>
-                                    @endforeach
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
